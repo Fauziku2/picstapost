@@ -1,3 +1,21 @@
-<p>
-  sign-up works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="email" name="fullName" id="fullName" ngModel class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" ngModel class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" ngModel class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

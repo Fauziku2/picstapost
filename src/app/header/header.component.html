@@ -4,15 +4,15 @@
       <a class="navbar-brand" href="#">PicStaPost</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">All Post</a></li>
-      <li><a href="#">Following</a></li>
-      <li><a href="#">Favourites</a></li>
-      <li><a href="#">My Post</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+      <li routerLinkActive="active"><a routerLink="/allposts">All Post</a></li>
+      <li routerLinkActive="active"><a routerLink="/following">Following</a></li>
+      <li routerLinkActive="active"><a routerLink="/favourites">Favourites</a></li>
+      <li routerLinkActive="active"><a routerLink="/myPosts">My Post</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Sign Up</a></li>
-      <li><a href="#">Login</a></li>
+      <li routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
+      <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
       <li><a href="#">Logout</a></li>
     </ul>
   </div>
