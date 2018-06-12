@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
+// Component
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { AllPostsComponent } from './all-posts/all-posts.component'
@@ -13,6 +14,11 @@ import { HomeComponent } from './home/home.component'
 import { AppRoutingModule } from './app-routing.module'
 import { FormsModule } from '@angular/forms'
 import { RouteGuard } from './auth/route-guard'
+import { NotificationComponent } from './notification/notification.component'
+
+// Services
+import { NotificationService } from './shared/notification.service'
+import { MyfireService } from './shared/myfire.service'
 
 @NgModule({
   declarations: [
@@ -24,14 +30,15 @@ import { RouteGuard } from './auth/route-guard'
     MyPostsComponent,
     SignUpComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [RouteGuard],
+  providers: [RouteGuard, NotificationService, MyfireService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
