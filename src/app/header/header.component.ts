@@ -27,7 +27,8 @@ export class HeaderComponent implements OnInit {
   onLogout() {
     firebase.auth().signOut()
       .then(() => {
-
+        this.userService.destroy()
+        this.isLoggedIn = false
       })
   }
 
