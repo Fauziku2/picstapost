@@ -4,6 +4,8 @@ import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { NotificationService } from '../../shared/notification.service'
 import { MyfireService } from '../../shared/myfire.service'
+import { UserService } from '../../shared/user.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,9 @@ import { MyfireService } from '../../shared/myfire.service'
 export class LoginComponent implements OnInit {
 
   constructor(private notificationService: NotificationService,
-              private myFireService: MyfireService) {
+              private myFireService: MyfireService,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -32,10 +36,10 @@ export class LoginComponent implements OnInit {
           firebase.auth().signOut()
         }
       })
-      .then(userDataFromDataBase => {
-        if (userDataFromDataBase) {
-          // todo:
-          console.log(userDataFromDataBase)
+      .then(userDataFromDatabase => {
+        if (userDataFromDatabase) {
+          this.userService.set(userDataFromDatabase)
+          this.router.navigate(['/allposts'])
         }
       })
       .catch(err => {

@@ -39,7 +39,7 @@ export class SignUpComponent implements OnInit {
       })
       .catch(err => {
         this.notificationService.display('error', err.message)
-        console.log(err)
       })
   }
 }
+
