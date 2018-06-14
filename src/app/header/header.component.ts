@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { UserService } from '../shared/user.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,9 @@ export class HeaderComponent implements OnInit {
   uid: string
   email: string
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     // can be deleted
@@ -33,13 +36,14 @@ export class HeaderComponent implements OnInit {
     firebase.auth().onAuthStateChanged(userData => {
       // we are logged in
       if (userData && userData.emailVerified) {
+        this.isLoggedIn = true
         const user = this.userService.getProfile()
         if (user) {
-        this.name = user.name
-        this.email = user.email
-        this.uid = user.uid
+          this.name = user.name
+          this.email = user.email
+          this.uid = user.uid
         }
-        this.isLoggedIn = true
+        this.router.navigate(['/myPosts'])
       } else {
         this.isLoggedIn = false
       }
