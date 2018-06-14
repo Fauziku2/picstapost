@@ -11,6 +11,26 @@
       <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/myPosts">My Post</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown" *ngIf="isLoggedIn">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript: void(0)">
+          <span class="user-name-display">{{name}}</span>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="javascript:void(0)">
+              <span class="user-title">Email: </span>
+              <span class="user-data">{{email}}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <span class="user-title">Uid: </span>
+              <span class="user-data">{{uid}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
       <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
       <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
       <li *ngIf="isLoggedIn" (click)="onLogout()"><a href="#">Logout</a></li>
