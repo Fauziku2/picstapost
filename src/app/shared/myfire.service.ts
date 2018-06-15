@@ -1,8 +1,13 @@
 import * as firebase from 'firebase/app'
 import 'firebase/database'
 import 'firebase/storage'
+import { UserService } from './user.service'
+import { Injectable } from '@angular/core'
 
+@Injectable()
 export class MyfireService {
+
+  constructor(private userService: UserService) {}
 
   public getUserFromDatabase(uid) {
     const ref = firebase.database().ref('users/' + uid)
@@ -10,7 +15,7 @@ export class MyfireService {
       .then(snapshot => snapshot.val())
   }
 
-  generateRandomName() {
+  private generateRandomName() {
     let text = ''
     const possible = 'ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrltuvwxyz0123456789'
 
@@ -28,7 +33,7 @@ export class MyfireService {
     const uploadTask = fileRef.put(file)
 
     return new Promise((resolve, reject) => {
-      uploadTask.on('state_changed', snapshot => {
+      uploadTask.on('state_changed', () => {
 
       }, error => {
         reject(error)
@@ -40,5 +45,45 @@ export class MyfireService {
           })
       })
     })
+  }
+
+  public handleImageUpload(data) {
+
+    const user = this.userService.getProfile()
+
+    const newPersonalPostKey = firebase.database().ref().child('myposts').push().key
+    const personalDetails = {
+      fileUrl: data.fileUrl,
+      name: data.fileName,
+      creationDate: new Date().toString()
+    }
+
+    const allPostKey = firebase.database().ref('allposts').push().key
+    const allPostsDetails = {
+      fileUrl: data.fileUrl,
+      name: data.fileName,
+      creationDate: new Date().toString(),
+      uploadedBy: user
+    }
+
+    const imageDetails = {
+      fileUrl: data.fileUrl,
+      name: data.fileName,
+      creationDate: new Date().toString(),
+      uploadedBy: user,
+      favouriteCount: 0
+    }
+
+    const updates = {}
+    updates['/myposts/' + user.uid + '/' + newPersonalPostKey] = personalDetails
+    updates['/allposts/' + allPostKey] = allPostsDetails
+    updates['/images/' + data.fileName] = imageDetails
+
+    // with one call to firebase, I send an object(updates) with consist of 3 diff nodes(mypost, allpost, images)
+    return firebase.database().ref().update(updates)
+  }
+
+  public getUserPostsRef(uid: string) {
+    return firebase.database().ref('myposts').child(uid)
   }
 }
