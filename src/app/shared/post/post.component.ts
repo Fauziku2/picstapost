@@ -9,6 +9,7 @@ import 'firebase/database'
 })
 export class PostComponent implements OnInit {
   @Input() imageName: string
+  @Input() displayPostedBy: boolean = true
 
   imageData: any = {}
   defaultImage: string = 'http://via.placeholder.com/150x150'

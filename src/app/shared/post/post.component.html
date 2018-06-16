@@ -7,15 +7,15 @@
       <span>{{imageData.name}}</span>
     </div>
 
-    <!--<div *ngIf="imageData.creationDate" class="text-section-row row1">-->
-      <!--<span>Posted on: {{imageData.creationDate | date: 'MM/dd/yy'}}</span>-->
-    <!--</div>-->
-    <!--<div *ngIf="imageData.uploadedBy && displayPostedBy" class="text-section-row row2">-->
-      <!--<span>Posted by: {{imageData.uploadedBy.name}} </span>-->
-    <!--</div>-->
-    <!--<div *ngIf="imageData.favoriteCount >= 0" class="text-section-row row3">-->
-      <!--<span># of Fav: {{imageData.favoriteCount}}</span>-->
-    <!--</div>-->
+    <div *ngIf="imageData.creationDate" class="text-section-row row1">
+      <span>Posted on: {{imageData.creationDate | date: 'MM/dd/yy'}}</span>
+    </div>
+    <div *ngIf="imageData.uploadedBy && displayPostedBy" class="text-section-row row2">
+      <span>Posted by: {{imageData.uploadedBy.name}} </span>
+    </div>
+    <div *ngIf="imageData.favouriteCount >= 0" class="text-section-row row3">
+      <span># of Fav: {{imageData.favouriteCount}}</span>
+    </div>
     <!--<div class="text-section-row row4 action-row hvr-grow" *ngIf="displayFavoritesButton">-->
       <!--<span (click)="onFavoritesClicked()">-->
         <!--<span class="glyphicon glyphicon-glass"></span>-->
