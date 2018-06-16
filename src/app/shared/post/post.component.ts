@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import * as firebase from 'firebase/app'
 import 'firebase/database'
 
@@ -10,6 +10,9 @@ import 'firebase/database'
 export class PostComponent implements OnInit {
   @Input() imageName: string
   @Input() displayPostedBy: boolean = true
+  @Input() displayFavoritesButton: boolean = true
+
+  @Output() favouriteClicked = new EventEmitter<any>()
 
   imageData: any = {}
   defaultImage: string = 'http://via.placeholder.com/150x150'
@@ -17,12 +20,22 @@ export class PostComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const uid = firebase.auth().currentUser.uid
     firebase.database().ref('images').child(this.imageName)
       .once('value')
       .then(snapshot => {
         this.imageData = snapshot.val()
         this.defaultImage = this.imageData.fileUrl
+
+        if (this.imageData.uploadedBy.uid === uid) {
+          this.displayFavoritesButton = false
+        }
       })
   }
+
+  onFavoritesClicked() {
+    this.favouriteClicked.emit(this.imageData)
+  }
+
 
 }

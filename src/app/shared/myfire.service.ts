@@ -86,4 +86,13 @@ export class MyfireService {
   public getUserPostsRef(uid: string) {
     return firebase.database().ref('myposts').child(uid)
   }
+
+  public handleFavouriteClicked(imageData) {
+    const uid = firebase.auth().currentUser.uid
+    const updates = {}
+    updates['/images/' + imageData.name + '/oldfavouriteCount'] = imageData.favouriteCount
+    updates['/images/' + imageData.name + '/favouriteCount'] = imageData.favouriteCount + 1
+    updates['/favourites/' + uid + '/' + imageData.name] = imageData
+    return  firebase.database().ref().update(updates)
+  }
 }

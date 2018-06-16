@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import * as firebase from 'firebase/app'
 import 'firebase/database'
 import _ from 'lodash'
+import { MyfireService } from '../shared/myfire.service'
+import { NotificationService } from '../shared/notification.service'
 
 @Component({
   selector: 'app-all-posts',
@@ -13,7 +15,8 @@ export class AllPostsComponent implements OnInit, OnDestroy {
   allPostsref: any
   loadMoreRef: any
 
-  constructor() { }
+  constructor(private myFireService: MyfireService,
+              private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.allPostsref = firebase.database().ref('allposts').limitToFirst(3)
@@ -51,5 +54,15 @@ export class AllPostsComponent implements OnInit, OnDestroy {
         })
       })
     }
+  }
+
+  onFavoritesClicked(imageData) {
+    this.myFireService.handleFavouriteClicked(imageData)
+      .then(data => {
+        this.notificationService.display('success', 'Image added to favourites')
+      })
+      .catch(err => {
+        this.notificationService.display('error', 'Error adding image image to favourites')
+      })
   }
 }
