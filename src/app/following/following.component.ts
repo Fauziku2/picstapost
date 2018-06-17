@@ -21,9 +21,7 @@ export class FollowingComponent implements OnInit, OnDestroy {
     const uid = firebase.auth().currentUser.uid
     const followRef = firebase.database().ref('follow').child(uid)
     followRef.once('value', data => {
-      console.log(data.val())
       const uidListOfOtherUsers = _.keys(data.val())
-      console.log(uidListOfOtherUsers)
       this.getPostsFromOtherUsers(uidListOfOtherUsers)
     })
   }
