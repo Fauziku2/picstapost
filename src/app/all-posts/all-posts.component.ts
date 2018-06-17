@@ -65,4 +65,14 @@ export class AllPostsComponent implements OnInit, OnDestroy {
         this.notificationService.display('error', 'Error adding image image to favourites')
       })
   }
+
+  onFollowClicked(imageData) {
+    this.myFireService.followUser(imageData.uploadedBy)
+      .then(() => {
+        this.notificationService.display('success', 'Following ' + imageData.uploadedBy.name + '!!!')
+      })
+      .catch(err => {
+        this.notificationService.display('error', err)
+      })
+  }
 }

@@ -9,11 +9,10 @@
       <div class="image-container">
         <app-post *ngFor="let post of allPosts"
                   [imageName]="post.data.name"
-                  (favouriteClicked)="onFavoritesClicked($event)">
+                  (favouriteClicked)="onFavoritesClicked($event)"
+                  (followClicked)="onFollowClicked($event)">
         </app-post>
       </div>
     </div>
   </div>
 </div>
-  <!--(favoriteClicked)="onFavoritesClicked($event)"
-  (followClicked)="onFollowClicked($event)">-->

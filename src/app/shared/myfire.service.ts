@@ -95,4 +95,11 @@ export class MyfireService {
     updates['/favourites/' + uid + '/' + imageData.name] = imageData
     return  firebase.database().ref().update(updates)
   }
+
+  public followUser(uploadedByUser) {
+    const uid = firebase.auth().currentUser.uid
+    const updates = {}
+    updates['/follow/' + uid + '/' + uploadedByUser.uid] = true
+    return firebase.database().ref().update(updates)
+  }
 }
