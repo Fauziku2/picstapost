@@ -1,0 +1,16 @@
+.nav-background {
+  background-color: #0074D9;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+  color: #39CCCC;
+  background-color: #104E8B;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #FFFFFF;
+}
