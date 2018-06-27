@@ -1,42 +1,54 @@
 <nav class="navbar navbar-inverse navbar-static-top nav-background">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="#">
         <span class="glyphicon glyphicon-camera"></span>
         PicStaPost
       </a>
     </div>
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
-      <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/allposts">All Post</a></li>
-      <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/following">Following</a></li>
-      <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/favourites">Favourites</a></li>
-      <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/myPosts">My Post</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown" *ngIf="isLoggedIn">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript: void(0)">
-          <span class="user-name-display">{{name}}</span>
-          <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <span class="user-title">Email: </span>
-              <span class="user-data">{{email}}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <span class="user-title">Uid: </span>
-              <span class="user-data">{{uid}}</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
-      <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
-      <li *ngIf="isLoggedIn" (click)="onLogout()"><a href="#">Logout</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/allposts">All Post</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/following">Following</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/favourites">Favourites</a></li>
+        <li *ngIf="isLoggedIn" routerLinkActive="active"><a routerLink="/myPosts">My Post</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" *ngIf="isLoggedIn">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="javascript: void(0)">
+            <span class="user-name-display">{{name}}</span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="javascript:void(0)">
+                <span class="user-title">Email: </span>
+                <span class="user-data">{{email}}</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <span class="user-title">Uid: </span>
+                <span class="user-data">{{uid}}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
+        <li *ngIf="!isLoggedIn" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+        <li *ngIf="isLoggedIn" (click)="onLogout()"><a href="#">Logout</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
