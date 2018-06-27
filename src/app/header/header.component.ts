@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
 import { UserService } from '../shared/user.service'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -14,10 +14,10 @@ export class HeaderComponent implements OnInit {
   name: string
   uid: string
   email: string
+  test: any
 
   constructor(private userService: UserService,
-              private router: Router) {
-  }
+              private router: Router) {}
 
   ngOnInit() {
     // can be deleted
@@ -57,5 +57,4 @@ export class HeaderComponent implements OnInit {
         this.isLoggedIn = false
       })
   }
-
 }

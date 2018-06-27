@@ -14,3 +14,7 @@
 .navbar-inverse .navbar-brand {
   color: #FFFFFF;
 }
+
+.zero-bottom-margin {
+  margin-bottom: 0;
+}

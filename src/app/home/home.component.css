@@ -1,12 +1,14 @@
 .title-header {
-  color: #39CCCC;
-  background: none;
-  border-style: double;
-  height: 80vh;
-  /*text-align: center;*/
+  color: #FFFFFF;
+  background: #39CCCC;
+  height: 100vh;
+  font-family: 'Shrikhand', cursive;
+  margin-bottom: 0;
 }
 
 h1 {
+  font-size: 11em;
   text-align: center;
   vertical-align: middle;
+  line-height: 50vh;
 }
