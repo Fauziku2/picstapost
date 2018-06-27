@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   email: string
 
   constructor(private userService: UserService,
-              private router: Router) {}
+              public router: Router) {}
 
   ngOnInit() {
     // can be deleted
