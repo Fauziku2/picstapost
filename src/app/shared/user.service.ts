@@ -20,5 +20,4 @@ export class UserService {
     // can be deleted
     this.statusChange.emit(null)
   }
-
 }

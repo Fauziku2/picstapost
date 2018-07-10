@@ -34,7 +34,6 @@ export class MyfireService {
 
     return new Promise((resolve, reject) => {
       uploadTask.on('state_changed', () => {
-
       }, error => {
         reject(error)
       }, () => {

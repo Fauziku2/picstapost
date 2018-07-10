@@ -1,32 +1,97 @@
-.title-header {
-  color: #FFFFFF;
-  background: #39CCCC;
-  height: 100vh;
-  font-family: 'Shrikhand', cursive;
-  margin-bottom: 0;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-h1 {
-  font-size: 11em;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 50vh;
+.hero-row {
+  margin: auto;
+  background-color: #9EC7EB;
+}
+
+.white-text {
+  color: #ffffff ;
+}
+
+.purple-text {
+  color: #8190EB;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5em;
+}
+
+.text-header-div {
+  margin-top: 5em;
+  padding-left: 5em;
+}
+
+.padding-left-zero {
+  padding-left: 0;
+}
+
+.btn-spacing {
+  margin-right: 0.8em;
+}
+
+.btn-login-width {
+  width: 5.5em;
+}
+
+.btn-primary {
+  border-color: #8190EB;
+  background-color: #8190EB;
+}
+
+.btn-primary:hover {
+  background-color: #8181EB;
+}
+
+.btn-default {
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.btn-default:hover {
+  border-color: #DCDCDC;
+  background-color: #DCDCDC;
 }
 
 @media (max-width: 576px) {
   h1 {
-    font-size: 4em;
+    font-size: 2.1em;
+  }
+
+  .btn-padding-bottom-mobile {
+    padding-bottom: 2em;
+  }
+
+  .text-header-div {
+    margin-top: 2em;
+    padding-left: 4em;
   }
 }
 
 @media (min-width: 576px) and (max-width: 768px) {
-  h1 {
-    font-size: 6em;
+  .btn-padding-bottom-mobile {
+    padding-bottom: 2em;
+  }
+
+  .text-header-div {
+    margin-top: 2em;
+    padding-left: 4em;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
+  .btn-padding-bottom-mobile {
+    padding-bottom: 2em;
+  }
+
   h1 {
-    font-size: 9em;
+    font-size: 2.2em;
   }
 }

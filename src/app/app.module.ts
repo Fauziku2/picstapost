@@ -19,7 +19,7 @@ import { NotificationComponent } from './notification/notification.component'
 // Services
 import { NotificationService } from './shared/notification.service'
 import { MyfireService } from './shared/myfire.service'
-import { UserService } from './shared/user.service';
+import { UserService } from './shared/user.service'
 import { PostComponent } from './shared/post/post.component'
 
 @NgModule({
