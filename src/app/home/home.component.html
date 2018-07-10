@@ -11,11 +11,14 @@
     </div>
     <div class="row margin-top btn-padding-bottom-mobile">
       <div class="col-sm-12 padding-left-zero">
-        <button class="btn btn-lg btn-default btn-spacing pull-left" routerLink="/signup">
+        <button *ngIf="!isLoggenIn" class="btn btn-lg btn-default btn-spacing pull-left" routerLink="/signup">
           <strong class="purple-text">Sign Up</strong>
         </button>
-        <button class="btn btn-lg btn-primary btn-login-width pull-left" routerLink="/login">
+        <button *ngIf="!isLoggenIn" class="btn btn-lg btn-primary btn-login-width pull-left" routerLink="/login">
           <strong>Login</strong>
+        </button>
+        <button *ngIf="isLoggenIn" class="btn btn-lg btn-primary pull-left" routerLink="/allposts">
+          <strong>Proceed to All Post</strong>
         </button>
       </div>
     </div>
